@@ -1,0 +1,44 @@
+a= audioread('orig_input.wav');
+fs=44100;
+t = 0 : 1/fs :3; 
+% f1 =987.77; % frequency (Hz)
+% f2 =587,33;
+% f3 =880;
+% f4 =783.99;
+% f5=130.82;
+% f6=196;
+% f7=164.81;
+% f8=220;
+% A1 = .8; A2 =.7; A3 =.6; A4 = .5;,A5 = .4;A6=.3;A7=.2;A8=.1;
+% 
+% y1 = A1 * sin( 2 * pi * f1 * t);
+% y2 = A2 * sin( 2 * pi * f2 * t );
+% y3 = A3 * sin( 2 * pi * f3 * t );
+% y4 = A4 * sin( 2 * pi * f4 * t );
+% y5 = A5 * sin( 2 * pi * f5 * t );
+% y6 = A6 * sin( 2 * pi * f6 * t );
+% y7 = A7 * sin( 2 * pi * f7 * t );
+% y8 = A8 * sin( 2 * pi * f8 * t );
+% y=[ y5 y6 y4 y5 y8 y8 y5 y6 y5 y4 y3 y2 y1];
+%Above C middle
+B = sin(2*pi*987.77*t);
+D = sin(2*pi*587.33*t);
+Ah = sin(2*pi*880*t); %The h is to know it's a higher note
+G8th = sin(2*pi*783.99*t);
+A8th = sin(2*pi*880*t);
+Adot = sin(2*pi*880*t);
+Rs = sin(2*pi*.0000*.5); %Used for rest
+%Below C middle
+C = sin(2*pi*130.82*t);
+G = sin(2*pi*196*t);
+E = sin(2*pi*164.81*t);
+Al = sin(2*pi*220*t); % The l is to know that it's a lower note
+Fs = sin(2*pi*185*t);
+%Combined notes to play at the same time
+BC = (B + C);
+AC = (Ah + C);
+AdotC = (Adot + C);
+y = [C,G,E,Rs,C,Al,Fs,Rs,C,G,E,Rs,C,Al,Fs,Rs];
+x1=y(1:7:length(y));
+x2=x1(1:length(a);
+sound(x, fs, 16);
